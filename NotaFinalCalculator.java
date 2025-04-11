@@ -1,6 +1,7 @@
 package examen;
 
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 public class NotaFinalCalculator {
 	static Logger logger = Logger.getLogger(getClass().getName());
@@ -19,10 +20,10 @@ public class NotaFinalCalculator {
         Map<String, Double> notasRA = leerNotasDesdeTeclado();
 
         double notaFinal = calcularNotaFinal(notasRA);
-        logger.info("Nota final de Entornos de Desarrollo: " + notaFinal);
+        logger.log(Level.SEVERE,() -> "Nota final de Entornos de Desarrollo: " + notaFinal);
 
         boolean aprobado = apruebaTodosLasRAs(notasRA);
-        logger.info("¿Ha aprobado todas las RAs?: " + (aprobado ? "Sí" : "No"));
+        logger.log(Level.SEVERE,() -> "¿Ha aprobado todas las RAs?: " + (aprobado ? "Sí" : "No"));
 
         procesaCalificaciones(notasRA);
         for (String ra: notasRA.keySet()) {

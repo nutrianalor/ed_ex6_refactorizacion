@@ -4,13 +4,7 @@
 
 # Errores
 
-## 1.- Move this file to a named package.
-
-Es una mala práctica colocar todas las clases directamente en el directorio fuente de un proyecto sin una estructura de paquete.
-
-He creado un paquete con nombre y he movido el .java ahí.
-
-## 2.- Replace this use of System.out by a logger.
+## 1.- Replace this use of System.out by a logger
 
 Para este corregir este error escribimos lo siguiente afuera de la clase:
 
@@ -28,4 +22,24 @@ Y por último sustituimos todos los System.out por logger.info:
 ```
 logger.info("...")
 ```
+
+## 2.- Use the built-in formatting to construct this argument
+
+He cambiado esto:
+
+```
+logger.info("...")
+```
+Por esto:
+
+```
+logger.log(Level.SEVERE,() -> "..." + ...);
+```
+
+## 3.- 
+
+
+
+
+
 
