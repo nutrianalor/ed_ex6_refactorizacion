@@ -50,7 +50,7 @@ public class NotaFinalCalculator {
 
 					// Validación: nota fuera de rango
 					if (nota < 0 || nota > 10) {
-						System.err.println("Nota no válida para " + ra + ". Se usará 0.");
+						logger.info("Nota no válida para " + ra + ". Se usará 0.");
 						nota = 0.0;
 					}
 
@@ -159,11 +159,6 @@ public class NotaFinalCalculator {
 
             case 8:
             case 7:
-                label: {
-                    resultado = "Notable";
-                    break;
-                }
-
             case 6:
                 resultado = "Bien";
                 break;
