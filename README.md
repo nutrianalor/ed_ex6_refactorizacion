@@ -55,7 +55,6 @@ He fusionado una condicional que estaba dentro de otra:
 if (notasRA == null && notasRA.size() > 0)
 ```
 
->## 6.- 
 
 
 
