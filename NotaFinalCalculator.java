@@ -40,9 +40,7 @@ public class NotaFinalCalculator {
 
 		if (notasRA == null || notasRA.isEmpty()) {
 			// No se hace nada si no hay notas (notaFinal se queda en 0.0)
-		} else if (notasRA == null) {
-			if (notasRA.size() > 0) {
-
+		} else if (notasRA == null && notasRA.size() > 0) {
 				for (Map.Entry<String, Double> entrada : PESOS_RA.entrySet()) {
 					String ra = entrada.getKey();
 					double peso = entrada.getValue();
@@ -50,7 +48,7 @@ public class NotaFinalCalculator {
 
 					// Validación: nota fuera de rango
 					if (nota < 0 || nota > 10) {
-						logger.info("Nota no válida para " + ra + ". Se usará 0.");
+						logger.log(Level.SEVERE,() ->"Nota no válida para " + ra + ". Se usará 0.");
 						nota = 0.0;
 					}
 
@@ -58,10 +56,10 @@ public class NotaFinalCalculator {
 				}
 
 			}
-		}
+		
 
 		return redondear(notaFinal);
-	}
+}
 
     // Redondea una nota a 2 decimales
     private static double redondear(double nota) {
@@ -76,7 +74,7 @@ public class NotaFinalCalculator {
         logger.info("Introduce las notas para cada RA (entre 0 y 10):");
 
         for (String ra : PESOS_RA.keySet()) {
-            logger.info(ra + ": ");
+        	logger.log(Level.SEVERE,() -> " "+ ra + ": ");
             try {
                 double nota = Double.parseDouble(scanner.nextLine());
                 notas.put(ra, nota);
@@ -145,7 +143,7 @@ public class NotaFinalCalculator {
             resultado.append("No se proporcionaron notas.\n");
         }
 
-        logger.info(resultado.toString());
+        logger.log(Level.SEVERE, () ->" " + resultado.toString());
     }
     
     private static void clasificarNotaPorSwitch(double nota) {
