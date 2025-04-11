@@ -36,7 +36,16 @@ Por esto:
 logger.log(Level.SEVERE,() -> "..." + ...);
 ```
 
-## 3.- 
+## 3.- Remove this expression which always evaluates to "true"
+
+Lo único que he cambiado en este error para hacerlo desaparecer ah sido quitar `"!="` y en su lugar poner `"=="`.
+```
+if (notasRA == null)
+```
+
+## 4.- 
+
+
 
 
 
